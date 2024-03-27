@@ -7,10 +7,11 @@ namespace ServerApp
 {
     public class ChatServer
     {
-        const short port = 4040;
-        const string serverAddress = "127.0.0.1";
-
-        TcpListener server = null;
+        const short port = 4041;
+        const string JOIN_CMD = "$<join>";
+        List<IPEndPoint> members ;
+        UdpClient server ;
+        IPEndPoint clientEndPoint = null;
         public ChatServer()
         {
             server = new TcpListener(new IPEndPoint(IPAddress.Parse(serverAddress), port));
