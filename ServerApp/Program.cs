@@ -9,8 +9,8 @@ namespace ServerApp
     {
         const short port = 4040;
         const string JOIN_CMD = "$<join>";
-        List<IPEndPoint> members ;
-        UdpClient server ;
+        List<IPEndPoint> members;
+        UdpClient server;
         IPEndPoint clientEndPoint = null;
         public ChatServer()
         {
@@ -51,14 +51,14 @@ namespace ServerApp
         }
     }
     internal class Program
-    {       
+    {
         static void Main(string[] args)
         {
-            ChatServer server = new ChatServer();   
+            ChatServer server = new ChatServer();
             server.Start();
-              
-            
+
+
         }
-       
+
     }
 }
