@@ -8,7 +8,7 @@
         Title="MainWindow" Height="450" Width="800">
     <DockPanel>
         <DockPanel DockPanel.Dock="Top">
-            <Label  FontSize="15"  FontWeight="Bold" Margin="10">Message : </Label>
+            <Label  FontSize="15"  FontWeight="Bold" Margin="10">Message :</Label>
             <Button DockPanel.Dock="Right" Margin="5" Padding="10" Click="DisconnectButton_Click">Disconnect</Button>
             <Button DockPanel.Dock="Right" Margin="5" Padding="10" Click="ConnectButton_Click">Connect</Button>
             <Button DockPanel.Dock="Right" Margin="5" Padding="10" Click="SendButton_Click">Send</Button>

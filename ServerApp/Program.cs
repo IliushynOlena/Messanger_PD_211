@@ -7,23 +7,22 @@ namespace ServerApp
 {
     public class ChatServer
     {
-        const short port = 4041;
-        const string JOIN_CMD = "$<join>";
-        List<IPEndPoint> members ;
-        UdpClient server ;
-        IPEndPoint clientEndPoint = null;
+        const short port = 4040;
+        const string serverAddress = "127.0.0.1";
+
+        TcpListener server = null;
         public ChatServer()
         {
             server = new TcpListener(new IPEndPoint(IPAddress.Parse(serverAddress), port));
-        }   
+        }
         public void Start()
-        {       
+        {
             server.Start();
             Console.WriteLine("Waiting for connection......");
 
-            TcpClient client =  server.AcceptTcpClient();
+            TcpClient client = server.AcceptTcpClient();
             Console.WriteLine("Connected!!!");
-            NetworkStream ns =  client.GetStream();
+            NetworkStream ns = client.GetStream();
             StreamReader sr = new StreamReader(ns);
             StreamWriter sw = new StreamWriter(ns);
             while (true)
@@ -34,21 +33,21 @@ namespace ServerApp
                     $"at {DateTime.Now.ToShortTimeString()}");
 
                 sw.WriteLine("Thanks.....");
-                sw.Flush(); 
-              
+                sw.Flush();
+
             }
 
         }
     }
     internal class Program
-    {       
+    {
         static void Main(string[] args)
         {
-            ChatServer server = new ChatServer();   
+            ChatServer server = new ChatServer();
             server.Start();
-              
-            
+
+
         }
-       
+
     }
 }
